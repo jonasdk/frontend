@@ -308,11 +308,6 @@ object Switches extends Collections {
     safeState = Off, sellByDate = new DateMidnight(2014, 4, 28)
   )
 
-  val ABAbcd = Switch("A/B Tests", "ab-abcd",
-    "If this switch is on, an AB test runs to validate the collection ab test data",
-    safeState = Off, sellByDate = new DateMidnight(2014, 4, 28)
-  )
-
   val ABOnwardsAboveDiscussion = Switch("A/B Tests", "ab-onwards-above-discussion",
     "If this switch is on, an AB test runs to move the onwards packages aboce discussion on the aricle page",
     safeState = Off, sellByDate = new DateMidnight(2014, 4, 28)
@@ -436,7 +431,6 @@ object Switches extends Collections {
     EnhanceTweetsSwitch,
     IndiaRegionSwitch,
     ABExternalLinksNewWindow,
-    ABAbcd,
     ABOnwardsAboveDiscussion,
     MemcachedSwitch,
     IncludeBuildNumberInMemcachedKey
