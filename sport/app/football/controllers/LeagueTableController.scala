@@ -70,7 +70,8 @@ object LeagueTableController extends Controller with Logging with CompetitionTab
 
   def renderCompetitionJson(competition: String) = renderCompetition(competition)
   def renderCompetition(competition: String) = Action { implicit request =>
-    loadTables.find(_.competition.url.endsWith(s"/$competition")).map { table =>
+    val table = loadTables.find(_.competition.url.endsWith(s"/$competition")).orElse(loadTables.find(_.competition.id == competition))
+    table.map { table =>
 
       val page = new Page(
         "football/tables",
