@@ -43,7 +43,6 @@ object Switches extends Collections {
   // Switch names can be letters numbers and hyphens only
 
   private lazy val never = new DateMidnight(2100, 1, 1)
-  private lazy val endOfQ4 = new DateMidnight(2014, 4, 1)
 
   // this is 3 months - at the end of this a decision is expected
   // and one (or both) of the 2 needs to go.
@@ -108,29 +107,19 @@ object Switches extends Collections {
 
   // Advertising Switches
 
-  val AdvertSwitch = Switch("Advertising", "adverts",
-    "If this switch is on then adverts will be loaded with JavaScript.",
+  val StandardAdvertsSwitch = Switch("Advertising", "standard-adverts",
+    "Display 'standard' adverts, e.g. top banner ads, inline ads, MPUs, etc.",
     safeState = On, sellByDate = never
   )
 
-  val OASAdvertSwitch = Switch("Advertising", "oas-adverts",
-    "If this switch is on then OAS adverts will be loaded with JavaScript.",
-    safeState = Off, sellByDate = new DateMidnight(2014, 4, 8)
+  val CommercialComponentsSwitch = Switch("Advertising", "commercial-components",
+    "Display commercial components, e.g. jobs, soulmates.",
+    safeState = On, sellByDate = never
   )
 
-  val DFPAdvertSwitch = Switch("Advertising", "dfp-adverts",
-    "If this switch is on then DFP adverts will be loaded with JavaScript.",
-    safeState = Off, sellByDate = new DateMidnight(2014, 4, 8)
-  )
-
-  val LoadOnlyCommercialComponents = Switch("Advertising", "load-only-commercial-components",
-    "If this switch is on then only commercial components will be loaded via DFP.",
-    safeState = On, sellByDate = new DateMidnight(2014, 4, 8)
-  )
-
-  val VideoAdvertSwitch = Switch("Advertising", "video-adverts",
-    "If this switch is on then OAS video adverts will be loaded with JavaScript.",
-    safeState = Off, sellByDate = never
+  val VideoAdvertsSwitch = Switch("Advertising", "video-adverts",
+    "Show adverts on videos.",
+    safeState = On, sellByDate = never
   )
 
   // Commercial Tags
@@ -278,7 +267,7 @@ object Switches extends Collections {
 
   val RssLinkSwitch = Switch("Feature Switches", "rss-link",
     "If this switch is on a link to the RSS is rendered in the HTML",
-    safeState = Off, sellByDate = new DateMidnight(2014, 4, 7)
+    safeState = Off, sellByDate = new DateMidnight(2014, 6, 30)
   )
 
   val PopularInTagSwitch = Switch("Feature Switches", "popular-in-tag",
@@ -300,6 +289,31 @@ object Switches extends Collections {
 
   val ABAbcd = Switch("A/B Tests", "ab-abcd",
     "If this switch is on, an AB test runs to validate the collection ab test data",
+    safeState = Off, sellByDate = new DateMidnight(2014, 4, 28)
+  )
+
+  val ABBlendedContainersUk = Switch("A/B Tests", "ab-blended-containers-uk",
+    "If this switch is on then the blended containers test runs on the UK network front",
+    safeState = Off, sellByDate = new DateMidnight(2014, 4, 18)
+  )
+
+  val ABBlendedContainersUs = Switch("A/B Tests", "ab-blended-containers-us",
+    "If this switch is on then the blended containers test runs on the US network front",
+    safeState = Off, sellByDate = new DateMidnight(2014, 4, 18)
+  )
+
+  val ABBlendedContainersAu = Switch("A/B Tests", "ab-blended-containers-au",
+    "If this switch is on then the blended containers test runs on the AU network front",
+    safeState = Off, sellByDate = new DateMidnight(2014, 4, 18)
+  )
+
+  val FootballLiveblogTruncation = Switch("A/B Tests", "ab-football-liveblog-truncation",
+    "If you swith cthis switch on, an AB test will run to truncate football liveblogs.",
+    safeState = Off, sellByDate = new DateMidnight(2014, 4, 21)
+  )
+
+  val ABOnwardsAboveDiscussion = Switch("A/B Tests", "ab-onwards-above-discussion",
+    "If this switch is on, an AB test runs to move the onwards packages aboce discussion on the aricle page",
     safeState = Off, sellByDate = new DateMidnight(2014, 4, 28)
   )
 
@@ -328,6 +342,11 @@ object Switches extends Collections {
 
   val ToolConfigurationDisable = Switch("Facia Tool", "facia-tool-configuration-disable",
     "If this is switched on then the fronts configuration tool is disabled",
+    safeState = Off, sellByDate = never
+  )
+
+  val ToolCheckPressLastmodified = Switch("Facia Tool", "facia-tool-check-press-lastmodified",
+    "If this switch is on facia tool will alert the user if a front is not pressed withing 10 secs of an edit/publish",
     safeState = Off, sellByDate = never
   )
 
@@ -363,11 +382,9 @@ object Switches extends Collections {
     AutoRefreshSwitch,
     DoubleCacheTimesSwitch,
     RelatedContentSwitch,
-    AdvertSwitch,
-    OASAdvertSwitch,
-    DFPAdvertSwitch,
-    LoadOnlyCommercialComponents,
-    VideoAdvertSwitch,
+    StandardAdvertsSwitch,
+    CommercialComponentsSwitch,
+    VideoAdvertsSwitch,
     AudienceScienceSwitch,
     DiscussionSwitch,
     OpenCtaSwitch,
@@ -382,8 +399,12 @@ object Switches extends Collections {
     FacebookAutoSigninSwitch,
     IdentityFormstackSwitch,
     IdentityEthicalAwardsSwitch,
+    ABBlendedContainersUk,
+    ABBlendedContainersUs,
+    ABBlendedContainersAu,
     ToolDisable,
     ToolConfigurationDisable,
+    ToolCheckPressLastmodified,
     ToolSparklines,
     OphanSwitch,
     ScrollDepthSwitch,
@@ -414,6 +435,8 @@ object Switches extends Collections {
     IndiaRegionSwitch,
     ABExternalLinksNewWindow,
     ABAbcd,
+    ABOnwardsAboveDiscussion,
+    FootballLiveblogTruncation,
     MemcachedSwitch,
     IncludeBuildNumberInMemcachedKey
   )
