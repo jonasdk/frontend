@@ -313,6 +313,11 @@ object Switches extends Collections {
     safeState = Off, sellByDate = new DateMidnight(2014, 4, 28)
   )
 
+  val ABHomeComponent = Switch("A/B Tests", "ab-home-component",
+    "This switch runs an AB test which adds a sticky-like home button.",
+    safeState = Off, sellByDate = new DateMidnight(2014, 5, 4)
+  )
+
   // Dummy Switches
 
   val IntegrationTestSwitch = Switch("Unwired Test Switch", "integration-test-switch",
@@ -430,6 +435,7 @@ object Switches extends Collections {
     HideOldTimeStampsSwitch,
     EnhanceTweetsSwitch,
     IndiaRegionSwitch,
+    ABHomeComponent,
     ABExternalLinksNewWindow,
     ABOnwardsAboveDiscussion,
     MemcachedSwitch,

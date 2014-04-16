@@ -6,7 +6,8 @@ define([
 
     //Current tests
     'common/modules/experiments/tests/external-links-new-window',
-    'common/modules/experiments/tests/onward-above-discussion'
+    'common/modules/experiments/tests/onward-above-discussion',
+    'common/modules/experiments/tests/home-component'
 ], function (
     common,
     store,
@@ -14,12 +15,14 @@ define([
     mvtCookie,
 
     ExternalLinksNewWindow,
-    OnwardAboveDiscussion
+    OnwardAboveDiscussion,
+    HomeComponent
     ) {
 
     var TESTS = [
             new ExternalLinksNewWindow(),
-            new OnwardAboveDiscussion()
+            new OnwardAboveDiscussion(),
+            new HomeComponent()
        ],
        participationsKey = 'gu.ab.participations';
 
